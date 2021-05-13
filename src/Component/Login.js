@@ -4,8 +4,11 @@ import axios from 'axios'
 import {toast} from "react-toastify";
 
 class Login extends Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
+        // this.getEmail=this.getEmail.bind(this);
+        // this.getPassword=this.getPassword.bind(this);
+        // this.fetchuseraxios=this.fetchuseraxios.bind(this);
         this.state={
             login:{},
             nameErr:"",
@@ -64,21 +67,37 @@ fetchuseraxios=(e)=>{
           url:"https://apifromashu.herokuapp.com/api/login",
           data:this.state.login         
       }).then((res)=>{
-          if(res.data){
-              toast("Welcome to our Cake Shop");
-              this.props.history.push('/home')
-              console.log("response",res);
-          }
+        localStorage.setItem("tokenId",res.data.token)
+        console.log(res.data)
+        this.message = res.data;
+        if(this.message.message !== 'Invalid Credentials'){
+            toast("Welcome to Our CakeShop");                    
+            console.log("message ;.....",this.message);
+            this.props.history.push('/Home');
+        } else {
+            toast("Please Check Your Email or Password");
+        } 
       },(err)=>{
-          console.log("error",err);
-          toast("Oh! Sorry You enter Wrong details");
+          toast(" Sorry You enter Wrong details");
       })            
   }   
   else{
-      toast("please Check Your details");
+      toast("please Check details");
   }     
 }
 
+
+     
+
+// componentDidMount(){
+//   this.login=JSON.parse(localStorage.getItem('email'));
+//   if(localStorage.getItem('email')){
+//     this.setState({
+//       nameErr: "",
+//       passErr: ""
+//     })
+//   }
+// }
 
 
   

@@ -23,12 +23,12 @@ class Plus extends Component{
           <form style={{padding:"10em 27em", backgroundColor:"lightblue"}}>
   <div class="form-group">
     <label for="exampleInputid">ID</label>
-    <input type="text" onChange={this.getId} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter id"></input>
+    <input type="text" onChange={this.getId} class="form-control" id="exampleInputid" aria-describedby="idHelp" placeholder="Enter id"></input>
     
   </div>
   <div class="form-group">
     <label for="exampleInputname">Name</label>
-    <input type="text" onChange={this.getName}class="form-control" id="exampleInputPassword1" placeholder="enter cake name"></input>
+    <input type="text" onChange={this.getName}class="form-control" id="exampleInputname" placeholder="enter cake name"></input>
     
   </div>
   <div class="form-group">

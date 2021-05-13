@@ -10,10 +10,13 @@ import Registration from './Component/Registration';
 import Newpassword from './Component/Newpassword';
 import Cake from './Component/Cake';
 import { ToastContainer, toast } from 'react-toastify';
-import Details from './Component/Details';
+// import Details from './Component/Details';
 import Dashboard from "./Component/Dashboard"
 import Plus from './Component/Plus';
-
+import CakeDetails from './Component/CakeDetails';
+import Details from './Component/Details';
+import Cart from './Component/Cart';
+import Product from './Component/Product';
 
 
 
@@ -26,10 +29,11 @@ function App() {
     <div className="App">
 
       <BrowserRouter>
+      
       <Navbar />
       <div>
-       <Route path="/Home" Home component={Home}/>
        <Route path="/login" Form component={Login}/>
+       <Route path="/Home" Home component={Home}/>
        <Route path="/Search" Form component={Search}/>
        <Route path="/Forgot" Form component={Forgot}/>
        <Route path="/Registration" Form component={Registration}/>
@@ -38,6 +42,10 @@ function App() {
        <Route path="/Details" Form component={Details}/>
        <Route path="/Dashboard" component={Dashboard}></Route>
        <Route path="/Plus" Form component={Plus}/>
+       <Route exact path="/CakeDetails/:id" exact component={CakeDetails} />
+       <Route exact path="/Details/:id" component={Details} />
+       <Route path="/Cart" Form component={Cart}/>
+       <Route path="/Product" Form component={Product}/>
        {/* <Route path="/" exact component={Home}/>
        <Route path="/" exact component={Home}/> */}
     </div>

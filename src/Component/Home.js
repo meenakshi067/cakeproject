@@ -36,8 +36,9 @@ class Home extends Component{
             <Carousel></Carousel>
             <div className="row">
                 {
-                   this.state.cakes.map((each) => {
-                    return <Cake  cakedata={each} />
+                   this.state.cakes.map((each, index) => {
+                     console.log(each.index);
+                    return <Cake key={index} cakedata={each} />
                 })
                 }
             </div>
