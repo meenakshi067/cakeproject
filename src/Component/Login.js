@@ -2,6 +2,7 @@ import {Component} from "react"
 import {Link} from "react-router-dom"
 import axios from 'axios'
 import {toast} from "react-toastify";
+import { connect } from "react-redux";
 
 class Login extends Component{
     constructor(props){
@@ -68,11 +69,16 @@ fetchuseraxios=(e)=>{
           data:this.state.login         
       }).then((res)=>{
         localStorage.setItem("tokenId",res.data.token)
+
         console.log(res.data)
         this.message = res.data;
         if(this.message.message !== 'Invalid Credentials'){
             toast("Welcome to Our CakeShop");                    
             console.log("message ;.....",this.message);
+            this.props.dispatch({
+              type:"LOGIN",
+              payload:Response.data
+            })
             this.props.history.push('/Home');
         } else {
             toast("Please Check Your Email or Password");
@@ -168,4 +174,4 @@ fetchuseraxios=(e)=>{
   }
    
 
-export default Login;
+export default connect() (Login);

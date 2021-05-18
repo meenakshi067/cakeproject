@@ -2,13 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import {Provider} from "react-redux"
 import reportWebVitals from './reportWebVitals';
 import 'react-toastify/dist/ReactToastify.css';
+import  BP from './myredux/store'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={BP}>
+ <React.StrictMode>
+   <App />
+  </React.StrictMode>
+  </Provider>,
+    
+  
   document.getElementById('root')
 );
 

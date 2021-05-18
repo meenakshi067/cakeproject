@@ -17,6 +17,8 @@ import CakeDetails from './Component/CakeDetails';
 import Details from './Component/Details';
 import Cart from './Component/Cart';
 import Product from './Component/Product';
+import Checkout from './Component/Checkout';
+
 
 
 
@@ -46,6 +48,7 @@ function App() {
        <Route exact path="/Details/:id" component={Details} />
        <Route path="/Cart" Form component={Cart}/>
        <Route path="/Product" Form component={Product}/>
+       <Route path="/Checkout" Form component={Checkout}/>
        {/* <Route path="/" exact component={Home}/>
        <Route path="/" exact component={Home}/> */}
     </div>

@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { Component } from 'react'
 import Product from './Product';
 import {Redirect} from 'react-router-dom'
+import {connect} from "react-redux"
+import { Link } from "react-router-dom"
 
  class Carts extends Component {
      constructor(props) {
@@ -18,9 +20,14 @@ import {Redirect} from 'react-router-dom'
             headers:{"authtoken":localStorage.tokenId}
          }).then((res)=>{
              console.log("res",res.data);
+
             //  this.cakes.push(res.data.data)
             this.setState({
                 cake:res.data.data
+            })
+            this.props.dispatch({
+                type:"order",
+                payload:res.data
             })
          },(err)=>{
              console.log("Error",err);
@@ -31,7 +38,9 @@ import {Redirect} from 'react-router-dom'
     render() {
         return (
             <div> 
-            <div class="col-md-5 ml-sm-auto col-lg-10 px-md-1" style={{ top: "6em", right: "8em" }}>
+
+            <div class="col-md-5 ml-sm-auto col-lg-10 px-md-1" style={{ top: "6em", right: "11em" }}>
+             <Link to="/Checkout"><button type="button" class="btn" style={{marginLeft:"60em",fontSize:"15px", backgroundColor:"white" ,color:"tomato"}}>Checkout</button></Link>
         <table class="table">                        
          <thead>
     <tr>
@@ -57,4 +66,9 @@ import {Redirect} from 'react-router-dom'
         )
     }
 }
-export default Carts
+export default connect((state, props) => {
+    console.log(state)
+    return {
+      Order: state["orderplace"]
+    }
+  })(Carts);
