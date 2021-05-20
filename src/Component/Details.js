@@ -1,90 +1,69 @@
 import { Component } from "react";
-import {CakeDetails} from './CakeDetails'
-import { useHistory } from "react-router-dom";
-import axios from 'axios';
-import {Link} from 'react-router-dom';
-import queryString from "query-string";
-import {toast} from "react-toastify";
+import {Link,Redirect} from 'react-router-dom';
+import axios from "axios";
+import { toast } from "react-toastify";
 
 
 class Details extends Component {
-
     
     constructor(props) {
         super(props)
-        this.state = {}
-        // this.NavigationDemo()
+        this.state ={
+            product:[]
+        }
+        
     }
-
-
-
-    registers = () => {
-     
-        //   const history = new useHistory();
-        const cartCake = {
-            cakeid: this.props.cakedata.cakeid,
-            name: this.props.cakedata.name,
-            image: this.props.cakedata.image,
-            weight: this.props.cakedata.weight,
-            price: this.props.cakedata.price,
+    message={}
+    addCart=[]
+    addCartPro={}
+    
+    addToCartCakes=()=>{
+        console.log(this.props)
+        var cakeinfo={
+            cakeid:this.props.cakedata.cakeid,      
+            name:this.props.cakedata.name,     
+            weight:this.props.cakedata.weight,      
+            price:this.props.cakedata.price,
+            image:this.props.cakedata.image     
         };
-    
-    
-                axios.post("https://apifromashu.herokuapp.com/api/addcaketocart",cartCake,{
-                        headers: { "authtoken":localStorage.getItem("token")}
-                    }).then((res) => {
-                        console.log("helloresss", res);
-                        
-                       if( res.data !== "Session Expired"){
-                           toast("Added to cart");
-                          
-                        }
-                       else {
-                           toast("Please Login Your ID");
-                        }
-                        
-                        
-                    }, ((err) => {
-                        console.log("hello",err);
-                      }))
-    }
+        axios({
+            method:"post",
+            url:"https://apifromashu.herokuapp.com/api/addcaketocart",
+            data:cakeinfo,
+            headers:{"authtoken":localStorage.getItem("tokenId")}
+        }).then((res)=>{
+            console.log(res.data)
+            if(res.data !== "Session Expired"){
+                this.addCartPro=res.data.data
+                this.addCart.push(this.addCartPro)
+                this.setState({
+                    product:this.addCart
+                })
+                console.log(this.state.product);
+                toast("Product : Add to Cart");
 
-    // addToCart(){
-    //     if(!localStorage.userlog){
-    //         this.toaster.error("plz login first");
-    //         this.router.navigate(['login/']);
-    //     }else if(localStorage.userlog){
-    //         console.log(this.cake);
-    //         this.cartCake={
-    //             cakeid: this.props.cakedata.cakeid,
-    //             name: this.props.cakedata.name,
-    //             image: this.props.cakedata.image,
-    //             weight: this.props.cakedata.weight,
-    //             price: this.props.cakedata.price
-                 
-    //         };
-    //         console.log(this.cartCake);
-    //         this.toaster.error("items added to cart successfully");
-    //     }
-    // }
+            }
+            else{
+                toast("You must Logged In");
+            }
+        },(err)=>{
+            console.log("Error",err)
+        })
+    }
 
     render() {
-        console.log("state,", this.props)
 
         return (
-            <div class="card mb-3" style={{ maxWidth: "80vw" ,marginLeft:"13em" ,border:"none"}}>
+            <div>
+            <div class="card mb-3" style={{ maxWidth: "85vw" ,marginLeft:"13em" ,border:"none"}}>
             <Link to={`/cakedetails/${this.props.cakedata.cakeid}`}>
-            <div onClick = {()=>{
-            
-                        // this.NavigationDemo(this.props.cakedata.cakeid);
-                                }}
-                     class="card detail-card" style={{marginTop:"5em"}}>
-              <div class="row no-gutters">
-                <div class="col-md-4" >
-                <img src={this.props.cakedata.image} style={{height:"100%" ,width:'23vw'}}class="card-img-top cakeImg" alt="..."></img>
+            <div class="card " style={{marginTop:"5em"}}>
+              <div class="row">
+                <div class="col-md-4">
+                <img src={this.props.cakedata.image} style={{height:"100%" ,width:'30vw'}}class="card-img-top cakeImg" alt="..."></img>
                 </div>
-                <div class="col-md-8">
-                  <div class="card-body" style={{color:"tomato" ,marginRight:"15em"}}>
+                <div class="col-md-8" style={{padding:"5em"}}>
+                  <div class="card-body" style={{color:"tomato"}}>
                       <h3 class="card-title">{this.props.cakedata.name}</h3>                
                             <p class="card-text">Ratings : {this.props.cakedata.ratings}</p>  
                             <p class="card-text">Price : {this.props.cakedata.price}</p>  
@@ -92,25 +71,19 @@ class Details extends Component {
                             <p class="card-text">Weight : {this.props.cakedata.weight}</p>  
                             <p class="card-text">Flavour : {this.props.cakedata.flavour}</p>  
                             <p class="card-text">Type : {this.props.cakedata.type}</p>                  
-                            <p class="card-text">{this.props.cakedata.likes}😍</p>   
-                            <button  onClick={(e) => {
-                   e.preventDefault()
-                    console.log("hiiiiii")
-                   this.registers();
-                 }} 
-
-                type="button" class="btn btn-success">Add To Cart<i class="fas fa-cart-plus"></i></button>
-                 {/* <button type="button" class="btn btn-success" style={{marginLeft:"1em"}}>Buy</button> */}
+                            <p class="card-text">{this.props.cakedata.likes}👩‍👧‍👧</p>   
+                            <button  onClick={this.addToCartCakes} type="button" class="btn btn-success">Add To Cart<i class="fas fa-cart-plus"></i></button>
                   </div>
-            
                 </div>
                     </div>
                     </div>
                     </Link>
+                
+            </div>
             </div>
         )
+
     }
 }
 
 export default Details;
-

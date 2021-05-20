@@ -13,6 +13,8 @@ function CakeDetails(props){
 
     var [cakeresult, setCakes] = useState({});
 
+    var [Loading ,setLoading]=useState(true)
+
     console.log("ca",cakeresult,setCakes);
     // var query = queryString.parse(props.location.cakes);
     // console.log( props.match.params.id);
@@ -33,7 +35,7 @@ function CakeDetails(props){
            
        
             setCakes(response.data);
-
+            setLoading(false);
             console.log("dddddddddddddddddddddd",cakeresult)
           })
 
@@ -41,17 +43,24 @@ function CakeDetails(props){
      
      
   
-        return (
-            <div>
-            <div className="row">
-              {/* {cakeresult.map((each) => { */}
-                 <Details cakedata={cakeresult} />;
-              {/* })}       */}
-              
-              </div>
-            </div>
+        return( 
+        <div>
+        {Loading && <div>
+          <div class="d-flex justify-content-center" style={{margin:"100px 100px"}}>
+          <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+          </div>
+          </div></div>}
         
-        )
+          {!Loading && <div className="row">
+            <Details cakedata={cakeresult} />
+          </div>}
+          </div>         
+        
+            
+            ) 
+        
+        
     }
 // import { format } from "path";
 

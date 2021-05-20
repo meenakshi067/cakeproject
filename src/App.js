@@ -18,6 +18,8 @@ import Details from './Component/Details';
 import Cart from './Component/Cart';
 import Product from './Component/Product';
 import Checkout from './Component/Checkout';
+import OrderList from './Component/OrderList';
+import Addcake from './Component/Addcake';
 
 
 
@@ -49,6 +51,8 @@ function App() {
        <Route path="/Cart" Form component={Cart}/>
        <Route path="/Product" Form component={Product}/>
        <Route path="/Checkout" Form component={Checkout}/>
+       <Route path="/OrderList" Form component={OrderList}/>
+       <Route path="/Addcake" Form component={Addcake}/>
        {/* <Route path="/" exact component={Home}/>
        <Route path="/" exact component={Home}/> */}
     </div>

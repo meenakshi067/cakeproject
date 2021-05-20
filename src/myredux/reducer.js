@@ -13,6 +13,11 @@ export function meenakshi (state = {},{type,payload}){
             state["orderplace"]=payload
             return state
         }
+        case "OrderList":{
+            state={...state}
+            state["Myorder"]=payload
+            return state
+        }
  
  
         default : return state

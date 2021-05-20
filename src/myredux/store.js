@@ -4,12 +4,15 @@ import {meenakshi} from "./reducer"
 
 var store  = createStore(meenakshi,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
-store.dispatch({
-    type:"LOGIN"
-})
+// store.dispatch({
+//     type:"LOGIN"
+// })
 
 store.dispatch({
     type:'Order'
+})
+store.dispatch({
+    type:'OrderList'
 })
 
 

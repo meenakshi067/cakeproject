@@ -44,11 +44,11 @@ function Search(props) {
         </div>}
 
 
-      {cakeresult.map((each) => {
+      {!isloading && cakeresult.map((each) => {
         return <Cake cakedata={each} />;
       })}
-      {cakeresult.length<=0 && <div>
-          No result found
+      {!isloading && cakeresult.length<=0 && <div>
+         <p style={{marginTop:"7em"}}> No result found</p>
       </div>}
     </div>
   );
