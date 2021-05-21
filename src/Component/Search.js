@@ -32,6 +32,7 @@ function Search(props) {
     );
   }, [query.q]); //jo humari query hogi search se se usko data nikal ke de dega 
 
+  var img="https://thumbs.dreamstime.com/b/emoticon-searching-mascot-vector-cartoon-illustration-emoticon-searching-mascot-vector-cartoon-illustration-original-113901025.jpg"
   return (
     
     <div className="row">
@@ -48,7 +49,20 @@ function Search(props) {
         return <Cake cakedata={each} />;
       })}
       {!isloading && cakeresult.length<=0 && <div>
-         <p style={{marginTop:"7em"}}> No result found</p>
+        <div class="card mb-3 border-0 " style={{maxWidth: "1200px"}}>
+  <div class="row no-gutters ">
+    <div class="col-md-4">
+      <img src={img} style={{marginLeft:'9rem',height:'300px',marginTop:'9em'}}alt="..." />
+    </div>
+    <div class="col-md-8" style={{marginTop:'12em'}} >
+      <div class="card-body">
+        <b class="card-title">Oop!</b>
+        <p class="card-text">Sorry, no results found!</p>
+        <h4>Please check the spelling or try searching for something else</h4>
+      </div>    
+  </div>
+            </div>
+            </div> 
       </div>}
     </div>
   );

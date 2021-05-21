@@ -69,6 +69,7 @@ fetchuseraxios=(e)=>{
           data:this.state.login         
       }).then((res)=>{
         localStorage.setItem("tokenId",res.data.token)
+        localStorage.setItem("name",res.data.name)
 
         console.log(res.data)
         this.message = res.data;
@@ -112,7 +113,7 @@ fetchuseraxios=(e)=>{
     {
         return(
           <div >
-          <form style={{padding:"10em 27em", backgroundColor:"lightblue"}}>
+          <form style={{padding:"10em 27em"}}>
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
     <input type="email" onChange={this.getEmail} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"></input>

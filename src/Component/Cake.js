@@ -24,7 +24,7 @@ class Cake extends Component {
             <div onClick = {()=>{
 
             // this.NavigationDemo(this.props.cakedata.cakeid);
-        }} class="card" style={{width: "15rem" , margin:"1rem"}}>
+        }} class="card" style={{border:'1px solid black',width: "17rem" ,top:'1em', margin:"2rem"}}>
         <img style={{height:"15em"}} src={this.props.cakedata.image} class="card-img-top" alt="..."></img>
         <div class="card-body">
                 <h5 class="card-title">{this.props.cakedata.name}</h5>                

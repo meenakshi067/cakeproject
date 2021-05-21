@@ -50,7 +50,7 @@ class OrderList extends Component {
                                     <div class="card">
                                         <div class="card-header" id="headingOne">
                                         <h2 class="mb-0">
-                                            <button class="btn  btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            <button class="btn  btn-block text-left" style={{color:'blue'}} type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                             Name:-({ele.name})
                                             <span style={{marginLeft:"500px"}}>
                                             {ele.orderdate}
@@ -63,7 +63,7 @@ class OrderList extends Component {
                                         </div>
                                         
                                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                        <div class="card-body" style={{marginLeft:"10px"}}> 
+                                        <div class="card-body" style={{marginLeft:"10px",color:'hotpink'}}> 
                                         <div>
                                            <p>Cakes({ele.cakes})({ele.orderid})</p> 
                                            <p>Address({ele.address})</p> 
