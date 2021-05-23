@@ -26,7 +26,7 @@ class Navbar extends Component{
 
     logout = () => {
       localStorage.clear()  
-          window.location.href="/Home"     
+          window.location.href="/"     
     }
 
 
@@ -35,7 +35,7 @@ render()
        return(
        <div>
  <nav class="navbar navbar-expand-lg navbar-light fixed-top" style= {{backgroundColor:"#F7F2F2",zIndex:30}}>
-  <Link to="/Home"><a class="navbar-brand" href="#">Cakes shop</a></Link>
+  <Link to="/"><a class="navbar-brand" href="#">Cakes shop</a></Link>
   {this.props.islogged &&<p style={{ color:'red', fontFamily: "cursive", fontSize: "1.2em" }}>{`Hye  ${localStorage.name}`}</p>}
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>

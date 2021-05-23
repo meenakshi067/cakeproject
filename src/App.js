@@ -40,7 +40,7 @@ function App() {
       <Navbar />
       <div>
        <Route path="/login" Form component={Login}/>
-       <Route path="/Home" Home component={Home}/>
+       <Route path="/" exact Home component={Home}/>
        <Route path="/Search" Form component={Search}/>
        <Route path="/Forgot" Form component={Forgot}/>
        <Route path="/Registration" Form component={Registration}/>

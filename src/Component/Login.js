@@ -80,7 +80,7 @@ fetchuseraxios=(e)=>{
               type:"LOGIN",
               payload:Response.data
             })
-            this.props.history.push('/Home');
+            this.props.history.push('/');
         } else {
             toast("Please Check Your Email or Password");
         } 
