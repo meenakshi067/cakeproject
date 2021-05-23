@@ -36,15 +36,15 @@ class ForgotPass extends Component{
     {
         return(
           <div>
-          <form style={{padding:"10em 27em", backgroundColor:"lightgreen"}}>
+          <form style={{padding:"10em 27em", backgroundColor:"#D3D3D3"}}>
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
+    <label for="exampleInputEmail1" style={{fontWeight:'bold',fontSize:'20px',color:'purple'}}>Email address</label>
     <input type="email" onChange={this.getemail} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"></input>
     <small  class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   
  <Link to="/Registration"> <button type="submit" class="btn btn-primary">Registration</button></Link>
-  <button type="submit" class="btn btn-primary" onClick={this.Getnewpassword}>Get new password</button>
+  {/* <button type="submit" class="btn btn-primary" onClick={this.Getnewpassword}>Get new password</button> */}
 
  
 

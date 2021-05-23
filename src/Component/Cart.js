@@ -40,7 +40,7 @@ import { Link } from "react-router-dom"
             <div> 
 
             <div class="col-md-5 ml-sm-auto col-lg-10 px-md-1" style={{ top: "6em", right: "11em" }}>
-             <Link to="/routes"><button type="button" class="btn" style={{marginLeft:"60em",fontSize:"15px", backgroundColor:"white" ,color:"tomato"}}>Checkout</button></Link>
+             <Link to="/routes"><button type="button" class="btn" style={{marginLeft:"60em",fontSize:"20px",border:'2px solid black', fontWeight:'bold', backgroundColor:"#DCDCDC" ,color:"tomato"}}>Checkout</button></Link>
         <table class="table">                        
          <thead>
     <tr>

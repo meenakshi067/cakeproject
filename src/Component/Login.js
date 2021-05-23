@@ -113,14 +113,14 @@ fetchuseraxios=(e)=>{
     {
         return(
           <div >
-          <form style={{padding:"10em 27em"}}>
+          <form style={{padding:"10em 27em",backgroundColor:'lightblue'}}>
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
+    <label for="exampleInputEmail1" style={{fontWeight:'bold',fontSize:'20px'}}>Email address</label>
     <input type="email" onChange={this.getEmail} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"></input>
     <p>{this.state.nameErr}</p>
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
+    <label for="exampleInputPassword1" style={{fontWeight:'bold',fontSize:'20px'}}>Password</label>
     <input type="password" onChange={this.getPassword}class="form-control" id="exampleInputPassword1" placeholder="Password"></input>
     <p>{this.state.passErr}</p>
   </div>

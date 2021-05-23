@@ -98,7 +98,7 @@ function DashBoard() {
                                 <td style={{width:"150px"}}>
                                     <div class="btn-group" role="group" aria-label="Basic example" style={{cursor:"pointer"}}>
                                        <Link to="Plus"><button type="button" class="btn btn-secondary">+</button></Link>
-                                        <button type="button" class="btn btn-secondary">-</button>
+                                        {/* <button type="button" class="btn btn-secondary">-</button> */}
                                     </div>
                                 </td>
                                 </tr>
